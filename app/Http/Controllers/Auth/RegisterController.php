@@ -52,7 +52,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:3', 'confirmed'],
         ]);
     }
 
@@ -62,12 +62,26 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
-    {
+    protected function create($request){
+
+        // $newImageName = uniqid() . '-' . $request->photo . '.' . $request->photo->extension();
+        // $request->photo->move(public_path('images', $newImageName));
+
+        // if($request -> hasFile('photo')){
+        //     $file = $request ->file('photo');
+        //     $photo = md5(time(). rand()). '.' . $file-> getClientOriginalExtension();
+        //     $file -> move(public_path('images'), $photo);
+        // }
+
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'name' => $request->input('name'),
+            'username' => $request->input('username'),
+            'email' => $request->input('email'),
+            'phone_number' => $request->input('phone_number'),
+            'password' => Hash::make($request->input('password')),
+
+
         ]);
+
     }
 }

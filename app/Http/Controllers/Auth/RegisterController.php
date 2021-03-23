@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Notifications\AccountConfirmationNotification;
 
 class RegisterController extends Controller
 {
@@ -83,5 +86,22 @@ class RegisterController extends Controller
 
         ]);
 
+    }
+
+
+    /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered($request, $user)
+    {
+        // $user->notify(new AccountConfirmationNotification($user));
+        Notification::send($user, new AccountConfirmationNotification($user));
+
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

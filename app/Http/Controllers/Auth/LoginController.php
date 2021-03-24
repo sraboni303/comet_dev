@@ -37,4 +37,35 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
+    /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        $login_info = request()->input('login_info');
+        $phone_number = substr($login_info, 0, 4);
+
+        if( filter_var($login_info, FILTER_VALIDATE_EMAIL) ){
+
+            $name = 'email';
+
+        }elseif($phone_number == 8801){
+
+            $name = 'phone_number';
+
+        }else{
+            $name = 'username';
+        }
+
+
+        request()->merge([$name => $login_info]);
+        return $name;
+
+    }
+
+
 }

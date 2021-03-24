@@ -7,20 +7,19 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class AccountConfirmationMail extends Mailable
+class TuesdayMail extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $mail_info;
+    public $tuesday;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($mail)
+    public function __construct($tuesday_offer)
     {
-        $this->mail_info = $mail;
+        $this->tuesday = $tuesday_offer;
     }
 
     /**
@@ -30,6 +29,6 @@ class AccountConfirmationMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.accountconfirmation');
+        return $this->view('mail.tuesday');
     }
 }

@@ -82,8 +82,6 @@ class RegisterController extends Controller
             'email' => $request->input('email'),
             'phone_number' => $request->input('phone_number'),
             'password' => Hash::make($request->input('password')),
-
-
         ]);
 
     }
@@ -102,6 +100,6 @@ class RegisterController extends Controller
         Notification::send($user, new AccountConfirmationNotification($user));
 
         Auth::logout();
-        return redirect()->route('login');
+        return redirect('/admin/login');
     }
 }

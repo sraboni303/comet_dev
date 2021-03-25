@@ -4,15 +4,6 @@ use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('/mail', [MailController::class, 'accountConfirmationMail'])->name('mail');
 
 Route::get('monday-mail', [MailController::class, 'mondayMail'])->name('monday.mail');
@@ -28,4 +19,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/login', [App\Http\Controllers\AdminController::class, 'showAdminLoginPage'])->name('login.admin');
     Route::get('/register', [App\Http\Controllers\AdminController::class, 'showAdminRegisterPage'])->name('register.admin');
     Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'showAdminDashboardPage'])->name('dashboard.admin');
+
+    Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('loggedin.admin');
+    Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout.admin');
+    Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register.admin');
 });

@@ -43,10 +43,13 @@
 		<script src="{{ asset('admin/assets/plugins/raphael/raphael.min.js') }}"></script>
 		<script src="{{ asset('admin/assets/plugins/morris/morris.min.js') }}"></script>
 		<script src="{{ asset('admin/assets/js/chart.morris.js') }}"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 		<!-- Custom JS -->
 		<script  src="{{ asset('admin/assets/js/script.js') }}"></script>
-		<script  src="{{ asset('admin/assets/js/custom.js') }}"></script>
+		<script  src="{{ asset('admin/assets/js/custom/logout.js') }}"></script>
+		<script  src="{{ asset('admin/assets/js/custom/category.js') }}"></script>
+		<script  src="{{ asset('admin/assets/js/custom/tag.js') }}"></script>
 
     </body>
 </html>

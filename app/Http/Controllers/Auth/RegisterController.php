@@ -67,14 +67,6 @@ class RegisterController extends Controller
      */
     protected function create($request){
 
-        // $newImageName = uniqid() . '-' . $request->photo . '.' . $request->photo->extension();
-        // $request->photo->move(public_path('images', $newImageName));
-
-        // if($request -> hasFile('photo')){
-        //     $file = $request ->file('photo');
-        //     $photo = md5(time(). rand()). '.' . $file-> getClientOriginalExtension();
-        //     $file -> move(public_path('images'), $photo);
-        // }
 
         return User::create([
             'name' => $request->input('name'),

@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:20 GMT -->
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -19,8 +17,9 @@
 
 		<!-- Feathericon CSS -->
         <link rel="stylesheet" href="{{ asset('admin/assets/css/feathericon.min.css') }}">
-
 		<link rel="stylesheet" href="{{ asset('admin/assets/plugins/morris/morris.css') }}">
+
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 		<!-- Main CSS -->
         <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
@@ -44,12 +43,15 @@
 		<script src="{{ asset('admin/assets/plugins/morris/morris.min.js') }}"></script>
 		<script src="{{ asset('admin/assets/js/chart.morris.js') }}"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="//cdn.ckeditor.com/4.16.0/full/ckeditor.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 		<!-- Custom JS -->
 		<script  src="{{ asset('admin/assets/js/script.js') }}"></script>
 		<script  src="{{ asset('admin/assets/js/custom/logout.js') }}"></script>
 		<script  src="{{ asset('admin/assets/js/custom/category.js') }}"></script>
 		<script  src="{{ asset('admin/assets/js/custom/tag.js') }}"></script>
+		<script  src="{{ asset('admin/assets/js/custom/posts.js') }}"></script>
 
     </body>
 </html>

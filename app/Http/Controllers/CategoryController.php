@@ -19,7 +19,7 @@ class CategoryController extends Controller
             'name' => $request->input('name'),
             'slug' => Str::slug($request->input('name')),
         ]);
-        return redirect()->route('index.category')->with('message', 'Category added successfully');
+        return redirect()->route('index.category');
     }
 
 

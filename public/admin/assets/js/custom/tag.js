@@ -4,7 +4,7 @@
         // Get Records
         function getRecords(){
             $.ajax({
-                url : '/admin/posts/tag/getrecords',
+                url : '/admin/tag/getrecords',
                 success : function(output){
                     $('#tag_body').html(output);
                 }
@@ -25,7 +25,7 @@
             event.preventDefault();
 
             $.ajax({
-                url : '/admin/posts/tag/store',
+                url : '/admin/tag/store',
                 method : 'POST',
                 data : new FormData(this),
                 contentType : false,
@@ -45,7 +45,7 @@
             event.preventDefault();
             let id = $(this).attr('edit_tag_id');
             $.ajax({
-                url : '/admin/posts/tag/edit/'+id,
+                url : '/admin/tag/edit/'+id,
                 success : function(output){
                     $('#edit_tag_form input[name=get_id]').val(output.id);
                     $('#edit_tag_form input[name=name]').val(output.name);
@@ -59,7 +59,7 @@
         $(document).on('submit', '#edit_tag_form', function(event){
             event.preventDefault();
             $.ajax({
-                url : '/admin/posts/tag/update',
+                url : '/admin/tag/update',
                 method : 'POST',
                 data : new FormData(this),
                 contentType : false,
@@ -83,14 +83,14 @@
 
             if( checked == 'checked' ){
                 $.ajax({
-                    url : '/admin/posts/tag/active/'+tag_id,
+                    url : '/admin/tag/active/'+tag_id,
                     success : function(output){
                         getRecords();
                     }
                 });
             }else{
                 $.ajax({
-                    url : '/admin/posts/tag/inactive/'+tag_id,
+                    url : '/admin/tag/inactive/'+tag_id,
                     success : function(output){
                         getRecords();
                     }
@@ -123,7 +123,7 @@
             }).then((willDelete) => {
                 if(willDelete){
                     $.ajax({
-                        url : '/admin/posts/tag/delete/' + id,
+                        url : '/admin/tag/delete/' + id,
                         success : function(output){
 
                             if(output){

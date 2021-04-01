@@ -3,20 +3,19 @@
         <div class="sidebar-inner slimscroll">
             <div id="sidebar-menu" class="sidebar-menu">
                 <ul>
-                    <li class="menu-title">
-                        <span>Main</span>
+                    <li>
+                        <a href="{{ route('dashboard.admin') }}"><i class="fe fe-home"></i> <span> Dashboard</span></a>
                     </li>
-                    <li class="active">
-                        <a href="{{ route('dashboard.admin') }}"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+                    <li>
+                        <a href="{{ route('index.posts') }}"> <i class="fe fe-document"></i> <span> Posts List</a>
                     </li>
-                    <li class="submenu">
-                        <a href="#"><i class="fe fe-document"></i> <span> Blog </span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="{{ route('index.posts') }}"> Posts </a></li>
-                            <li><a href="{{ route('index.category') }}"> Categories </a></li>
-                            <li><a href="{{ route('index.tag') }}"> Tags </a></li>
-                        </ul>
+                    <li>
+                        <a href="{{ route('create.posts') }}"> <i class="fe fe-document"></i> <span> Create Post</a>
                     </li>
+                    <li>
+                        <a href="{{ route('index.category') }}"><i class="fe fe-document"></i> <span> Categories </a>
+                    </li>
+                    <li><a href="{{ route('index.tag') }}"><i class="fe fe-document"></i> <span>  Tags </a></li>
                 </ul>
             </div>
         </div>

@@ -26,6 +26,7 @@
             <div class="row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-10">
+                    <a class="btn btn-danger mb-3" href="{{ route('create.posts') }}">Create Blog</a>
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">

@@ -4,7 +4,7 @@
         // Show Records
         function getRecords(){
             $.ajax({
-                url : '/admin/posts/category/getrecords',
+                url : '/admin/category/getrecords',
                 success : function(output){
                     $('#cat_body').html(output);
                 }
@@ -25,7 +25,7 @@
         $('#create_cat_form').submit(function(event){
             event.preventDefault();
             $.ajax({
-                url : '/admin/posts/category/store',
+                url : '/admin/category/store',
                 method : 'POST',
                 data : new FormData(this),
                 contentType : false,
@@ -48,14 +48,14 @@
 
             if( checked == 'checked'){
                 $.ajax({
-                    url : '/admin/posts/category/active/'+cat_id,
+                    url : '/admin/category/active/'+cat_id,
                     success : function(output){
                         getRecords();
                     }
                 });
             }else{
                 $.ajax({
-                    url : '/admin/posts/category/inactive/'+cat_id,
+                    url : '/admin/category/inactive/'+cat_id,
                     success : function(){
                         getRecords();
                     }
@@ -73,7 +73,7 @@
             let cat_id = $(this).attr('edit_cat_id');
 
             $.ajax({
-                url : '/admin/posts/category/edit/'+cat_id,
+                url : '/admin/category/edit/'+cat_id,
                 success: function(output){
                     $('#edit_cat_form input[name=name]').val(output.name);
                     $('#edit_cat_form input[name=get_id]').val(output.id);
@@ -90,7 +90,7 @@
             event.preventDefault();
 
             $.ajax({
-                url : '/admin/posts/category/update',
+                url : '/admin/category/update',
                 method : 'POST',
                 data : new FormData(this),
                 contentType : false,
@@ -119,7 +119,7 @@
                 if(willDelete){
 
                     $.ajax({
-                        url : '/admin/posts/category/delete/' + id,
+                        url : '/admin/category/delete/' + id,
                         success : function(output){
                             if(output){
 

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tag;
+use App\Models\Post;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -29,9 +31,19 @@ class PostController extends Controller
     // Store
     public function store(Request $request){
 
+        // Validation Post
         $this->validate($request, [
             'title' => 'required|unique:posts|max:255',
             'content' => 'required',
         ]);
+
+        // Create Post
+        Post::create([
+            'title' => $request->input('title'),
+            'slug' => Str::slug($request->input('title')),
+            'content' => $request->input('content'),
+        ]);
+
+        return redirect()->back()->with('message', 'Post Created Successfully..');
     }
 }

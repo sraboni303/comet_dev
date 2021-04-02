@@ -1,6 +1,7 @@
 (function($){
     $(document).ready(function(){
 
+
         // CK Editor load
         CKEDITOR.replace('text_area');
 
@@ -12,15 +13,6 @@
             let file_url = URL.createObjectURL(e.target.files[0]);
             $('.preload_image').attr('src', file_url);
         });
-
-
-
-
-
-
-
-
-
 
         // Preload Gallery
         $(document).on('change', '#upload_gallery', function(e){
@@ -35,40 +27,7 @@
             }
             $('.preload').html(gallery);
 
-
-
-
-
-
-
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         // Post Inpout
         $(document).on('click', 'input[type="radio"]', function(e){
@@ -106,6 +65,42 @@
         });
 
 
+        // Status
+        $(document).on('click', '.check', function(){
+
+            let id = $(this).attr('status_id');
+            let checked = $(this).attr('checked');
+
+
+            if(checked == 'checked'){
+                $.ajax({
+                    url : '/admin/posts/active/' + id,
+                    success : function(){
+
+                    }
+                });
+            }else{
+
+                $.ajax({
+                    url : '/admin/posts/inactive/' + id,
+                    success : function(){
+
+                    }
+                });
+            }
+
+
+        });
+
+
+        // Edit
+        $(document).on('click', '.edit_btn', function(e){
+            e.preventDefault();
+            let id = $(this).attr('edit_id');
+            $.ajax({
+                url : '/admin/posts/'
+            });
+        });
 
 
 

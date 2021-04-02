@@ -23,7 +23,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
+                                {{-- <div class="form-group row">
                                     <label class="col-form-label col-md-2">Select Tags</label>
                                     <div class="col-md-10">
                                         <select name="tag[]" class="form-control tag_selector" multiple="multiple">
@@ -45,7 +45,7 @@
                                             </div>
                                         @endforeach
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="form-group row post_type">
                                     <label class="col-form-label col-md-2">Select Type</label>

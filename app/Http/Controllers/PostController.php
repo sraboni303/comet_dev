@@ -86,4 +86,33 @@ class PostController extends Controller
         return redirect()->back()->with('message', 'Post Created Successfully..');
 
     }
+
+
+    // Status: active to inactive
+    public function active($id){
+        $status = Post::find($id);
+        $status->status = false;
+        $status->update();
+    }
+
+
+    // Status: inactive to active
+    public function inactive($id){
+        $status = Post::find($id);
+        $status->status = true;
+        $status->update();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -9,6 +9,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Models\Role;
 
 // Mail Routes:
 Route::get('/mail', [MailController::class, 'accountConfirmationMail'])->name('mail');
@@ -38,6 +39,9 @@ Route::prefix('admin')->group(function () {
         Route::get('/', [PostController::class, 'index'])->name('index.posts');
         Route::get('/create', [PostController::class, 'create'])->name('create.posts');
         Route::post('/store', [PostController::class, 'store'])->name('store.posts');
+        Route::get('/edit/{id}', [PostController::class, 'edit'])->name('edit.posts');
+        Route::get('/active/{id}', [PostController::class, 'active']);
+        Route::get('/inactive/{id}', [PostController::class, 'inactive']);
 
     });
 

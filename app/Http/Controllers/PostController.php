@@ -12,7 +12,10 @@ class PostController extends Controller
 {
     // Index
     public function index(){
-        return view('admin.blog.index');
+        $data = Post::all();
+        return view('admin.blog.index', [
+            'all_data' => $data,
+        ]);
     }
 
     // Create

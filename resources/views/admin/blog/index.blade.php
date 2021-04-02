@@ -33,44 +33,42 @@
                                 <table class="datatable table table-hover table-center mb-0">
                                     <thead>
                                         <tr>
+                                            <th>#</th>
                                             <th>Title</th>
-                                            <th>Category</th>
+                                            <th>Featured Type</th>
                                             <th>Updated</th>
-                                            <th>Tags</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <h2 class="table-avatar">
-                                                    <a href="profile.html">Blog Title</a>
-                                                </h2>
-                                            </td>
-                                            <td>economic</td>
-
-                                            <td>14 Jan 2019 <br><small>02.59 AM</small></td>
-
-                                            <td>tag_one, tag_two</td>
-
-                                            <td>
-                                                <div class="status-toggle">
-                                                    <input type="checkbox" id="status_1" class="check" checked>
-                                                    <label for="status_1" class="checktoggle">checkbox</label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="actions">
-                                                    <a data-toggle="modal" href="#edit_invoice_report" class="btn btn-sm bg-success-light mr-2">
-                                                        <i class="fe fe-pencil"></i> Edit
-                                                    </a>
-                                                    <a class="btn btn-sm bg-danger-light" data-toggle="modal" href="#delete_modal">
-                                                        <i class="fe fe-trash"></i> Delete
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        @foreach ($all_data as $data)
+                                            @php
+                                                $featured_data = json_decode($data->featured);
+                                            @endphp
+                                            <tr>
+                                                <td>{{ $loop->index+1 }}</td>
+                                                <td>{{ $data->title }}</td>
+                                                <td>{{ $featured_data->type }}</td>
+                                                <td>14 Jan 2019 <br><small>02.59 AM</small></td>
+                                                <td>
+                                                    <div class="status-toggle">
+                                                        <input type="checkbox" id="status_1" class="check" checked>
+                                                        <label for="status_1" class="checktoggle">checkbox</label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="actions">
+                                                        <a data-toggle="modal" href="#edit_invoice_report" class="btn btn-sm bg-success-light mr-2">
+                                                            <i class="fe fe-pencil"></i> Edit
+                                                        </a>
+                                                        <a class="btn btn-sm bg-danger-light" data-toggle="modal" href="#delete_modal">
+                                                            <i class="fe fe-trash"></i> Delete
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

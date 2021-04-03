@@ -69,7 +69,7 @@ class PostController extends Controller
             'type' => $request->radio,
             'image' => $image_name,
             'gallery' => $gallery_names,
-            'video' => $request->video,
+            'video' => str_replace('watch?v=', 'embed/', $request->video),
             'audio' => $request->audio,
         ];
 
@@ -82,7 +82,7 @@ class PostController extends Controller
             'featured' => json_encode($featured),
         ]);
 
-        return redirect()->back()->with('message', 'Post Created Successfully..');
+        return back();
 
     }
 

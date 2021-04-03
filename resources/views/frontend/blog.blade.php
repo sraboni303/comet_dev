@@ -43,6 +43,14 @@
                                     </div>
                                 @endif
 
+                                @if ($featured_data->type == 'Video')
+                                    <div class="post-media">
+                                        <div class="media-video">
+                                        <iframe src="{{ $featured_data->video }}" frameborder="0"></iframe>
+                                        </div>
+                                    </div>
+                                @endif
+
                                 <div class="post-body">
                                     {!! Str::of(htmlspecialchars_decode($post ->content))->words(60)  !!}
                                     <p><a href="{{ route('single.blog', $post->id) }}" class="btn btn-color btn-sm">Read More</a>

@@ -75,8 +75,8 @@
                                     <div class="col-md-4">
                                         <input name="image" type="file" id="upload_image">
                                         <input name="gallery[]" style="display: none" type="file" id="upload_gallery"  multiple>
-                                        <input name="video" style="display: none" type="file" id="upload_video">
-                                        <input name="audio" style="display: none" type="file" id="upload_audio">
+                                        <input name="video" style="display: none" type="text" class="form-control" id="upload_video" placeholder="Video URL">
+                                        <input name="audio" style="display: none" type="text"  class="form-control"id="upload_audio" placeholder="Audio URL">
                                     </div>
 
                                 </div>

@@ -42,6 +42,10 @@ Route::prefix('admin')->group(function () {
         Route::get('/edit/{id}', [PostController::class, 'edit'])->name('edit.posts');
         Route::get('/active/{id}', [PostController::class, 'active']);
         Route::get('/inactive/{id}', [PostController::class, 'inactive']);
+        Route::get('/trashes', [PostController::class, 'showTrashes'])->name('trashes.posts');
+        Route::get('/trash/{id}', [PostController::class, 'trash'])->name('trash.posts');
+        Route::get('/untrash/{id}', [PostController::class, 'untrash'])->name('untrash.posts');
+        Route::get('/delete/{id}', [PostController::class, 'delete'])->name('delete.posts');
 
     });
 

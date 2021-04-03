@@ -12,7 +12,7 @@ class PostController extends Controller
 {
     // Index
     public function index(){
-        $data = Post::all();
+        $data = Post::where('trash', false)->get();
         return view('admin.blog.index', [
             'all_data' => $data,
         ]);
@@ -101,6 +101,62 @@ class PostController extends Controller
         $status = Post::find($id);
         $status->status = true;
         $status->update();
+    }
+
+
+    // Edit
+    public function edit($id){
+        $edit = Post::find($id);
+
+        return view('admin.blog.edit', [
+            'id' => $edit->id,
+            'title' => $edit->title,
+            'content' => $edit->content,
+        ]);
+    }
+
+
+    // Show Trashes
+    public function showTrashes(){
+        $data = Post::where('trash', true)->get();
+        return view('admin.blog.trash', [
+            'all_data' => $data,
+        ]);
+    }
+
+
+    // Trash
+    public function trash($id){
+
+        $trash = Post::find($id);
+
+        if($trash->trash == false){
+            $trash->trash = true;
+            $trash->update();
+        }
+
+        return back();
+    }
+
+
+    // Untrash
+    public function untrash($id){
+
+        $untrash = Post::find($id);
+
+        if($untrash->trash == true){
+            $untrash->trash = false;
+            $untrash->update();
+        }
+        return back();
+    }
+
+
+    // Delete Parmanently
+    public function delete($id){
+        $delete = Post::find($id);
+        $delete->delete();
+        return back();
     }
 
 

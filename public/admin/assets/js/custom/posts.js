@@ -95,13 +95,72 @@
 
         // Edit
         $(document).on('click', '.edit_btn', function(e){
-            e.preventDefault();
             let id = $(this).attr('edit_id');
             $.ajax({
-                url : '/admin/posts/'
+                url : '/admin/posts/edit/' + id,
+                success : function(output){
+                    $('#edit_title').val(output.title);
+                    $('#edit_id').val(output.id);
+                }
             });
         });
 
+
+        // Trash
+        $(document).on('click', '.trash', function(e){
+            e.preventDefault();
+            let id = $(this).attr('trash_id');
+
+            $.ajax({
+                url : '/admin/posts/trash/' + id,
+                success : function(output){
+                }
+            });
+        });
+
+
+        // Untrash
+        $(document).on('click', '.untrash', function(e){
+            e.preventDefault();
+            let id = $(this).attr('id');
+
+            $.ajax({
+                url : '/admin/posts/untrash/' + id,
+                success : function(output){
+
+                }
+            });
+        });
+
+
+        // Delete Parmanently
+        $(document).on('click', '.delete', function(e){
+            e.preventDefault();
+            let id = $(this).attr('id');
+
+            swal({
+                icon : 'warning',
+                title : 'Delete Parmanently',
+                text : 'Are You Sure?',
+                buttons : ['Cancel', 'Delete'],
+                dangerMode : true,
+            }).then( (willDelete) => {
+                if(willDelete){
+                    $.ajax({
+                        url : '/admin/posts/delete/' + id,
+                        success : function(output){
+                            if(output){
+                                swal({
+                                    icon : 'success',
+                                    title : 'Deleted',
+                                    text : 'Data Deleted Successfully',
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+        });
 
 
 

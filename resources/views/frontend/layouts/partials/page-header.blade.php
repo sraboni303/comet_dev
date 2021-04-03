@@ -1,5 +1,5 @@
 <section class="page-title parallax">
-    <div data-parallax="scroll" data-image-src="frontend/images/bg/18.jpg" class="parallax-bg"></div>
+    <div data-parallax="scroll" data-image-src="{{ URL::to('') }}/frontend/images/bg/18.jpg" class="parallax-bg"></div>
     <div class="parallax-overlay">
       <div class="centrize">
         <div class="v-center">

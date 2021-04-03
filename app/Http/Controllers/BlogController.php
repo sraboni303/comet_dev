@@ -16,9 +16,14 @@ class BlogController extends Controller
 
 
     public function showSinglePost($id){
+
         $post_id = Post::find($id);
         return view('frontend.blog-single', [
-            'single_post' => $post_id
+            'single_post' => $post_id,
         ]);
+
     }
+
+
+
 }

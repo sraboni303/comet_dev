@@ -50,17 +50,16 @@ class PostController extends Controller
         $gallery_names = [];
 
         if($request->hasFile('image')){
-
             $image = $request->file('image');
             $image_name = md5(time().rand()) . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('media/posts/', $image_name));
-
+            $image->move(public_path('media/posts/'), $image_name);
         }elseif($request->hasFile('gallery')){
-
             foreach($request->file('gallery') as $gallery){
                $gallery_name = md5(time().rand()) . '.' . $gallery->getClientOriginalExtension();
-               $gallery->move(public_path('media/posts/', $gallery_name));
+
+               $gallery->move(public_path('media/posts/'), $gallery_name);
                array_push($gallery_names, $gallery_name);
+
             }
         }
 

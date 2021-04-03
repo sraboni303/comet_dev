@@ -8,6 +8,7 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Models\Role;
 
@@ -28,6 +29,10 @@ Route::get('/register', [AdminController::class, 'showAdminRegisterPage'])->name
 Route::post('/register', [RegisterController::class, 'register'])->name('register.admin');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout.admin');
 
+
+
+// Frontend Routes:
+Route::get('/blog', [BlogController::class, 'showBlogPage']);
 
 
 // Admin Routes:

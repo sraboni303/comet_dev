@@ -62,7 +62,7 @@
             <td>{{ $loop->index+1 }}</td>
             <td>{{ $data->title }}</td>
             <td>{{ $featured_data->type }}</td>
-            <td>14 Jan 2019 <br><small>02.59 AM</small></td>
+            <td>{{ date('d M, Y', strtotime($data->created_at)) }} <br><small>02.59 AM</small></td>
             <td>
                 <div class="status-toggle">
                     <input type="checkbox" status_id="{{ $data->id }}" id="status_{{ $loop->index+1 }}" class="check" {{ ( $data->status == true ? "checked" : "") }}>

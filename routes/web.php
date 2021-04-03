@@ -33,6 +33,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout.admin')
 
 // Frontend Routes:
 Route::get('/blog', [BlogController::class, 'showBlogPage']);
+Route::get('/single/{id}', [BlogController::class, 'showSinglePost'])->name('single.blog');
 
 
 // Admin Routes:

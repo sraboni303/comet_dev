@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  
+
 <!-- Mirrored from themes.hody.co/html/comet/blog-single-sidebar.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Jan 2017 09:50:21 GMT -->
 <head>
     <title>Comet | Creative Multi-Purpose HTML Template</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="css/bundle.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="frontend/css/bundle.css">
+    <link rel="stylesheet" href="frontend/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Halant:300,400" rel="stylesheet" type="text/css">
@@ -28,6 +28,7 @@
   </head>
 
   <body>
+
     <!-- Preloader-->
     <div id="loader">
       <div class="centrize">
@@ -470,12 +471,14 @@
       </div>
     </section>
     <section>
+
+
       <div class="container">
         <div class="row">
           <div class="col-md-8">
             <article class="post-single">
               <div class="post-info">
-                <h2><a href="#">Checklists for Startups</a></h2>
+                <h2><a href="#">{{ $single_post->title }}</a></h2>
                 <h6 class="upper"><span>By</span><a href="#"> Admin</a><span class="dot"></span><span>28 September 2015</span><span class="dot"></span><a href="#" class="post-tag">Startups</a></h6>
               </div>
               <div class="post-media">
@@ -624,6 +627,9 @@
 
       </div>
     </section>
+
+
+
     <!-- Footer-->
     <footer id="footer-widgets">
       <div class="container">
@@ -709,7 +715,7 @@
 
 
 
-      
+
       <!-- end of container-->
     </footer>
     <footer id="footer">
@@ -765,10 +771,11 @@
       <!-- end of container-->
     </footer>
     <!-- end of footer-->
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bundle.js"></script>
+
+    <script type="text/javascript" src="frontend/js/jquery.js"></script>
+    <script type="text/javascript" src="frontend/js/bundle.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="frontend/js/main.js"></script>
   </body>
 
 

@@ -64,12 +64,32 @@ class PostController extends Controller
         }
 
 
+
+
+
+
+
+
+        // YouTube vs Vimeo Vidoes
+        $link = $request->video;
+        $vimeo = substr($link, 15, 5);
+        $youtube = substr( $link ,12, 7);
+        $video_src = '';
+
+        if($youtube){
+            $video_src =str_replace('watch?v=', 'embed/', $request->video);
+
+        }elseif($vimeo){
+            $video_src = str_replace('https://vimeo.com/', 'https://player.vimeo.com/video/' ,$request->video);
+        }
+
+
         // Featured Ready
         $featured = [
             'type' => $request->radio,
             'image' => $image_name,
             'gallery' => $gallery_names,
-            'video' => str_replace('watch?v=', 'embed/', $request->video),
+            'video' => $video_src,
             'audio' => $request->audio,
         ];
 

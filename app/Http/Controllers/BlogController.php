@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
     public function showBlogPage(){
-        $posts = Post::where('status', true)->where('trash', false)-> latest()->paginate(3);
+        $posts = Post::where('status', true)->where('trash', false)-> latest()->paginate(4);
         return view('frontend.blog', [
             'posts' => $posts
         ]);
